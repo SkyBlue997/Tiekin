@@ -1,0 +1,45 @@
+server:
+  port: 11111
+  
+spring:
+  application:
+    name: tieba-sign
+  
+  # 数据库配置
+  datasource:
+    url: jdbc:h2:file:./data/tieba
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  # JPA 配置
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    
+  # H2 控制台配置
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+  
+  # Thymeleaf配置
+  thymeleaf:
+    cache: false
+    
+  # 静态资源处理
+  web:
+    resources:
+      static-locations: classpath:/static/
+      
+# 日志配置
+logging:
+  level:
+    root: info
+    com.tieba: info
+  file:
+    name: ./logs/tieba-sign.log 

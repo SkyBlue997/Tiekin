@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  tieba-sign:
+    build: .
+    container_name: tieba-sign
+    restart: always
+    ports:
+      - "11111:11111"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS=-Xmx512m 
